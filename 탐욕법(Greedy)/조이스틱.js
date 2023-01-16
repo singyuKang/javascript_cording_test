@@ -66,3 +66,23 @@ function solution(name) {
 
   return answer > second_answer ? second_answer : answer;
 }
+
+function solution(name) {
+  var answer = 0;
+  let min_move = name.length - 1;
+
+  for (let i = 0; i < name.length; i++) {
+    //65 A.      90 Z
+    let tmp = name.charCodeAt(i);
+
+    //78(N) 보다 작을 경우 그냥 카운트해준다.
+    if (tmp < 78) {
+      answer += tmp % 65;
+    }
+    //78보다 클경우 이전 알파벳이 더 빠르다.
+    else {
+      answer += 91 - tmp;
+    }
+  }
+  return answer;
+}
